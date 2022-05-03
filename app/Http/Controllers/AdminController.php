@@ -11,8 +11,8 @@ class AdminController extends Controller
     {
         Paginator::useBootstrap();
         return view('admin',[
-            
-            'data' => Product::paginate(3)
+            'title' => 'Halaman Admin',
+            'data' => Product::paginate(4)
         ]);
     }  
 }

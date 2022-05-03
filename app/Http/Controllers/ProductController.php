@@ -8,7 +8,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('admin.inputdata');
+        return view('admin.inputdata',[
+            'title' => 'Input Data'
+        ]);
     }
     public function inputdata(Request $request)
     {
@@ -28,7 +30,10 @@ class ProductController extends Controller
     public function updateindex($id)
     {
         $data = Product::find($id);
-        return view('admin.updatedata',compact('data'));
+        return view('admin.updatedata',[
+            'data' => $data,
+            'title' => 'Update Data'
+        ]);
     }
     public function updatedata(Request $request, $id)
     {

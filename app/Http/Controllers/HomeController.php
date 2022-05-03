@@ -12,7 +12,8 @@ class HomeController extends Controller
     {
         Paginator::useBootstrap();
         return view('home',[
-            'data' => Product::paginate(3)
+            'title' => 'Home',
+            'data' => Product::paginate(4)
         ]);
     }
 }

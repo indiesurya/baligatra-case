@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin</title>
-</head>
-<body>
-    Input Data
-    <form action="/inputdata" method="POST" enctype="multipart/form-data">
-    @csrf
-        <label for="desc">Deskripsi</label><br>
-        <input type="text" name="desc"><br>
-        <label for="photo">Foto</label><br>
-        <input type="file" id="photo"name="photo"><br>
-        <label for="harga">Harga</label><br>
-        <input type="text" name="harga"><br>
-        <button name="submit">insert</button>
-    </form>
-</body>
-</html>
+@extends('layouts.layout')
+@section('container')
+    <div class="container mt-4">
+        <form action="/inputdata" method="POST" enctype="multipart/form-data">
+        @csrf
+            <div class="mb-3">
+                <label for="desc" class="form-label">Description</label>
+                <input type="text" class="form-control" name="desc" autofocus autocomplete="off">
+            </div>
+            <div class="mb-3">
+                <label for="photo" class="form-label">Photo</label>
+                <input type="file" class="form-control" name="photo">
+            </div>
+            <div class="mb-3">
+                <label for="harga" class="form-label">Harga</label>
+                <input type="text" class="form-control" name="harga" autocomplete="off">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+@endsection
