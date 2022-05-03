@@ -11,6 +11,9 @@
                 @csrf
                     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                         <p class="lead fw-normal mb-0 me-3">Sign in with</p>
+                        <a type="button" class="btn btn-primary btn-floating mx-1" href="/auth/google">
+                        <i class="bi bi-google"></i>
+                        </a>
                         <button type="button" class="btn btn-primary btn-floating mx-1">
                         <i class="bi bi-facebook"></i>
                         </button>

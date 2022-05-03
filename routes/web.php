@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -35,3 +36,6 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/login', [AuthController::class, 'indexlogin']);
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 });
+
+Route::get('/auth/google',[GoogleController::class,'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
