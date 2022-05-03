@@ -35,7 +35,10 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('/register', [AuthController::class, 'register']);
     Route::get('/login', [AuthController::class, 'indexlogin']);
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+    Route::get('/auth/google', [AuthController::class, 'redirectToGoogle'])->name('google.login');
+    Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback'])->name('google.callback');
+    Route::get('/auth/facebook', [AuthController::class, 'redirectToFacebook'])->name('facebook.login');
+    Route::get('/auth/facebook/callback', [AuthController::class, 'handleFacebookCallback'])->name('facebook.callback');
+    Route::get('/auth/linkedin', [AuthController::class, 'redirectToLinkedin'])->name('linkedin.login');
+    Route::get('/auth/linkedin/callback', [AuthController::class, 'handleLinkedinCallback'])->name('linkedin.callback');
 });
-
-Route::get('/auth/google',[GoogleController::class,'redirectToGoogle'])->name('google.login');
-Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');

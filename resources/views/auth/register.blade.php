@@ -11,17 +11,16 @@
                 @csrf
                     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                         <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <a type="button" class="btn btn-primary btn-floating mx-1" href="/auth/google">
+                        <i class="bi bi-google"></i>
+                        </a>
+                        <a type="button" class="btn btn-primary btn-floating mx-1" href="/auth/facebook">
                         <i class="bi bi-facebook"></i>
-                        </button>
+                        </a>
 
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
-                        <i class="bi bi-twitter"></i>
-                        </button>
-
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <a type="button" class="btn btn-primary btn-floating mx-1" href="/auth/linkedin">
                         <i class="bi bi-linkedin"></i>
-                        </button>
+                        </a>
                     </div>
 
                     <div class="divider d-flex align-items-center my-4">
