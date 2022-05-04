@@ -19,6 +19,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/inputdata', [ProductController::class, 'inputdata']);

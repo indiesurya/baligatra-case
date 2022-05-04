@@ -41,8 +41,8 @@ class AuthController extends Controller
             'email' => 'required|email:dns',
             'password' => 'required|min:5|max:255'
         ]);
-
-        if (Auth::attempt($credentials)) {
+        $remember = $request->has('remember') ? true:false;
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
             return redirect()->intended('/admin');
@@ -67,7 +67,7 @@ class AuthController extends Controller
     public function handleGoogleCallback()
     {
         try {
-            $user = Socialite::driver('google')->stateless()->user();
+            $user = Socialite::driver('google')->user();
             $finduser = User::where('google_id', $user->id)->first();
 
             if ($finduser) {
@@ -98,7 +98,7 @@ class AuthController extends Controller
     public function handleFacebookCallback()
     {
         try {
-            $user = Socialite::driver('facebook')->stateless()->user();
+            $user = Socialite::driver('facebook')->user();
             $finduser = User::where('facebook_id', $user->id)->first();
 
             if ($finduser) {
@@ -129,7 +129,7 @@ class AuthController extends Controller
     public function handleLinkedinCallback()
     {
         try {
-            $user = Socialite::driver('linkedin')->stateless()->user();
+            $user = Socialite::driver('linkedin')->user();
             $finduser = User::where('linkedin_id', $user->id)->first();
 
             if ($finduser) {
